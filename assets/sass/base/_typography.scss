@@ -1,45 +1,70 @@
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
 ///
-/// Big Picture by HTML5 UP
+/// Identity by HTML5 UP
 /// html5up.net | @ajlkn
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
 /* Type */
 
-	body, input, textarea, select {
-		font-family: _font(family);
-		font-weight: _font(weight);
-		font-size: 18pt;
-		line-height: 1.75em;
+	body, input, select, textarea {
 		color: _palette(fg);
-		letter-spacing: 0.025em;
-
-		@include breakpoint(xxlarge) {
-			font-size: 17pt;
-		}
+		font-family: _font(family);
+		font-size: 14pt;
+		font-weight: _font(weight);
+		line-height: 2;
+		letter-spacing: _size(letter-spacing);
+		text-transform: uppercase;
 
 		@include breakpoint(xlarge) {
-			font-size: 15pt;
+			font-size: 11pt;
 		}
 
-		@include breakpoint(large) {
-			font-size: 13pt;
-		}
-
-		@include breakpoint(medium) {
-			font-size: 13pt;
-		}
-
-		@include breakpoint(small) {
-			font-size: 12pt;
-			line-height: 1.5em;
+		@include breakpoint(xsmall) {
+			font-size: 10pt;
+			line-height: 1.75;
 		}
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		font-weight: _font(weight-bold);
+	a {
+		@include vendor('transition', (
+			'color #{_duration(transition)} ease',
+			'border-color #{_duration(transition)} ease'
+		));
 		color: inherit;
-		letter-spacing: -0.0325em;
+		text-decoration: none;
+
+		&:before {
+			@include vendor('transition', (
+				'color #{_duration(transition)} ease',
+				'text-shadow #{_duration(transition)} ease'
+			));
+		}
+
+		&:hover {
+			color: _palette(highlight);
+		}
+	}
+
+	strong, b {
+		color: _palette(fg-bold);
+	}
+
+	em, i {
+		font-style: italic;
+	}
+
+	p {
+		margin: 0 0 _size(element-margin) 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: _palette(fg-bold);
+		line-height: 1.5;
+		margin: 0 0 (_size(element-margin) * 0.5) 0;
 
 		a {
 			color: inherit;
@@ -47,55 +72,52 @@
 		}
 	}
 
-	h2 {
-		font-size: 2.25em;
-		line-height: 1.25em;
-		letter-spacing: -0.05em;
+	h1 {
+		font-size: 1.85em;
+		letter-spacing: (_size(letter-spacing) * 1.1);
+		margin: 0 0 (_size(element-margin) * 0.35) 0;
 	}
 
-	@include breakpoint(small) {
-		h2 {
-			font-size: 1.5em;
+	h2 {
+		font-size: 1.25em;
+	}
+
+	h3 {
+		font-size: 1em;
+	}
+
+	h4 {
+		font-size: 1em;
+	}
+
+	h5 {
+		font-size: 1em;
+	}
+
+	h6 {
+		font-size: 1em;
+	}
+
+	@include breakpoint(xsmall) {
+		h1 {
+			font-size: 1.65em;
 		}
 	}
 
-	strong, b {
-		font-weight: _font(weight-bold);
-		color: inherit;
-	}
-
-	em, i {
-		font-style: italic;
-	}
-
-	a {
-		@include vendor('transition', 'color #{_duration(transition)} ease-in-out');
-		color: _palette(accent1, bg);
-	}
-
 	sub {
+		font-size: 0.8em;
 		position: relative;
 		top: 0.5em;
-		font-size: 0.8em;
 	}
 
 	sup {
+		font-size: 0.8em;
 		position: relative;
 		top: -0.5em;
-		font-size: 0.8em;
 	}
 
 	hr {
 		border: 0;
-		border-top: solid 1px _palette(border);
-	}
-
-	blockquote {
-		border-left: solid 0.5em _palette(border);
-		padding: 1em 0 1em 2em;
-		font-style: italic;
-	}
-
-	p, ul, ol, dl, table {
-		margin-bottom: 1em;
+		border-bottom: solid _size(border-width) _palette(border);
+		margin: (_size(element-margin) * 2) 0;
 	}

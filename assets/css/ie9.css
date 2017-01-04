@@ -1,39 +1,41 @@
 /*
-	Big Picture by HTML5 UP
+	Identity by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Loader */
+/* Basic */
 
-	body:before, body:after {
-		display: none !important;
+	body {
+		background-image: url("../../images/bg.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: bottom center;
+		background-attachment: fixed;
 	}
 
-/* Gallery */
+		body:after {
+			display: none;
+		}
 
-	.gallery:after {
-		content: '';
-		display: block;
-		clear: both;
+/* List */
+
+	ul.icons li a:before {
+		color: #c8cccf;
 	}
 
-	.gallery article {
-		float: left;
+	ul.icons li a:hover:before {
+		color: #ff7496;
+	}
+
+/* Wrapper */
+
+	#wrapper {
+		text-align: center;
 	}
 
 /* Main */
 
-	.main.fullscreen {
-		min-height: 0;
-	}
-
-	.main.style1 > .content {
-		margin: 0 auto;
-	}
-
-/* Poptrox */
-
-	.poptrox-popup .loader {
-		display: none !important;
+	#main {
+		display: inline-block;
 	}
