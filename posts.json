@@ -1,0 +1,15 @@
+{
+	"Posts": [{
+		"title": "Ez az első poszt próba szövege.",
+		"author": "Mate",
+		"date": "2011-04-17"
+	}, {
+		"title": "Ez egy poszt",
+		"author": "Mate",
+		"date": "2011-04-17"
+	}, {
+		"title": "Harmadik poszt",
+		"author": "Mate",
+		"date": "2011-04-17"
+	}]
+}

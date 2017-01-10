@@ -151,20 +151,39 @@
 
     <!-- Post Generator -->
     <script>
-        var $postContainer = $( "#postContainer" ),
-        post1 = '<div class="post-preview"><a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I dont intend to waste any of mine.</h2></a><p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p></div>';
+        var $postContainer = $( "#postContainer" );
+        var posts = [];
 
-        post2 = '<div class="post-preview"><a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I dont intend to waste any of mine.</h2></a><p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p></div>';
+        $.ajax({
+          url: "https://github.com/ronaimate/ronaimate.github.io/posts.json",
+          cache: false,
+          dataType: "json",
+          success: function(data) {
 
-        var posts = [post1, post2];
+                $.each(data.posts, function(index, element) {
 
-        $.each( posts, function( index, post ){
-            $postContainer.append( $.parseHTML( post ) );
-            if( index != posts.length - 1 )
-            {
-                $postContainer.append( $.parseHTML( '<hr>' ) );
-            }
-        });        
+                    currentPost = '<div class="post-preview"><a href="post.html"><h2 class="post-title">' + element.title + '</h2></a><p class="post-meta">Posted by <a href="#">' + element.author + '</a> on ' + element.date + '</p></div>';
+
+                    posts.push(currentPost);
+                });
+
+
+          },
+          error: function (request, status, error) { 
+            alert(serverErrorMsg); 
+          }
+        });   
+
+        $( document ).ajaxComplete(function( event,request, settings ) {
+            $.each( posts, function( index, post ){
+                $postContainer.append( $.parseHTML( post ) );
+                if( index != posts.length - 1 )
+                {
+                    $postContainer.append( $.parseHTML( '<hr>' ) );
+                }
+            });    
+        });
+
     </script>
 </body>
 
