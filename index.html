@@ -155,14 +155,14 @@
         var posts = [];
 
         $.ajax({
-          url: "https://mindig.online/posts.json",
+          url: "http://localhost:8080/mindig/news",
           cache: false,
           dataType: "json",
           success: function(data) {
 
-                $.each(data.posts, function(index, element) {
+                $.each(data, function(index, element) {
 
-                    currentPost = '<div class="post-preview"><a href="post.html"><h2 class="post-title">' + element.title + '</h2></a><p class="post-meta">Posted by <a href="#">' + element.author + '</a> on ' + element.date + '</p></div>';
+                    currentPost = '<div class="post-preview"><a href="post.html"><h2 class="post-title">' + element.title + '</h2></a><p class="post-meta">Posted by <a href="#">' + element.author + '</a> on ' + element.creationTime + '</p></div>';
 
                     posts.push(currentPost);
                 });
