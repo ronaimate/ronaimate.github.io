@@ -1,0 +1,18 @@
+//-----------------------------------------------------------
+// DEFINE MAIL LABELS FOR SENDING KEY STROKES.
+//-----------------------------------------------------------
+<Label w1 Local SendWinM WoW1>
+<Label w2 Local SendWinM WoW2>
+<Label w3 Local SendWinM WoW3>
+
+//-----------------------------------------------------------
+// DEFINE HOTKEYS FOR ALL KEY COMBINATIONS THAT WILL GET
+// SENT TO ALL WOWS. ADD MORE KEY COMBO'S IF YOU WANT.
+//-----------------------------------------------------------
+<Hotkey 1>
+    <Sendlabel w1>
+        <Key %trigger%>
+    <Sendlabel w2>
+        <Key %trigger%>
+    <Sendlabel w3>
+        <Key %trigger%>
